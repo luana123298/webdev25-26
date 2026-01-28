@@ -3,12 +3,23 @@
       2) Perform the necessary calculations
       3) Display the results in the appropriate element
 */
-function recArea(){
 
+
+function recArea(){
+      let len=parseFloat(document.getElementById("l").value);
+      let wid=parseFloat(document.getElementById("w").value);
+      let op=document.getElementById("output")
+      let a=len*wid;
+      op.innerHTML= "Area is:"+a;
 }
 
 function recPerimeter(){
-
+      let len=parseFloat(document.getElementById("l").value);
+      let wid=parseFloat(document.getElementById("w").value);
+      let op=document.getElementById("output")
+      let p=2*(l+w)
+      op.innerHTML= p;
+      
 }
 
 
