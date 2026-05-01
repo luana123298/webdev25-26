@@ -5,7 +5,7 @@ async function init(){
   let link = "https://raw.githubusercontent.com/rcastro2/WebDevelopment/refs/heads/main/data/fbi.json";
   info = await fetch(link);
   data = await info.json();
-  
+
   let output = document.getElementById("output");
   let build = "";
   /* Challenge 2: 
@@ -17,17 +17,20 @@ async function init(){
      into a hyperlink in order to actually display the PDF in a new tab.
      https://mozilla.github.io/pdf.js/web/viewer.html?file=${...}
   */
-  for (let i = 0; i < data.length; i++) {
-        let criminal = data[i];
+   for (let i = 0; i < data.length; i++) {
+    let criminal = data[i];
 
-  build += <div class="card">
-    <h3>${criminal.title}</h3>
-    <img src="$(criminal.imge)" class= "fit">
-
-
-
-
- </div>
+    build += `
+         <div class="card">
+        <h3>${criminal.title}</h3>
+        <img src="${criminal.image}" class="fit">
+        <p>${criminal.details}</p>
+        <a href="https://mozilla.github.io/pdf.js/web/viewer.html?file=${criminal.pdf}" target="_blank">
+          View Poster
+        </a>
+      </div>
+    `;
+   }
 
   output.innerHTML = build;
-}
+  }
