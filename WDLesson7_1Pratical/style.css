@@ -25,7 +25,7 @@ nav a:hover{
   color:white;
 }
 .subbanner{
-  background-color:cornflowerblue;
+  background-color:rgb(200,220,255);
 }
 #banner{
   background-color:blue;
@@ -46,6 +46,8 @@ nav a:hover{
   padding:10px;
   border:1px solid gray;
   text-align:center;
+  box-shadow:2px 2px 2px black;
+  border-radius:2px;
 }
 
 .highlight{
@@ -66,15 +68,6 @@ nav a:hover{
 .button:hover{
   background-color:cornflowerblue;
 }
-#output{
-  flex-wrap:wrap;
-}
-.fit{
-  width:150px;
-  height:150px;
-  object-fit:contain;
-}
-
 #leftPanel{
   flex:1;
 }
@@ -85,9 +78,10 @@ nav a:hover{
   max-width:200px;
   min-width:200px;
 }
-#result{
-  background-color: yellow;
-  color:red;
-  max-width: 200px;
-  font-size: 20px;
+.card img{
+  height:100px;
+}
+#output{
+  display:flex;
+  flex-wrap:wrap;
 }

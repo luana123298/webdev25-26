@@ -1,35 +1,30 @@
 let data, info;
 
 async function init(){   
-  let link = "https://data.cityofnewyork.us/resource/h9gi-nx95.json?$limit=1000";
+  let link = "311.json"; //let link = "https://data.cityofnewyork.us/resource/erm2-nwe9.json?$limit=1000";
   info = await fetch(link);
   data = await info.json();
   
-  displayData(data);
-}
-
-function displayData(arr){
   let output = document.getElementById("output");
   let build = "";
 
-  for(let i = 0; i < arr.length; i++){
-    let c = arr[i];
-
+  for(let i = 0; i < data.length; i+=1){
+    let complaint = data[i];
     build += `<div class="fitted card">
-                <h3>Collision</h3>
-                <hr>
-                <p><b>Date:</b> ${c.crash_date || "N/A"}</p>
-                <p><b>Time:</b> ${c.crash_time || "N/A"}</p>
-                <p><b>Borough:</b> ${c.borough || "N/A"}</p>
-                <p><b>Zip:</b> ${c.zip_code || "N/A"}</p>
-                <p><b>Injured:</b> ${c.number_of_persons_injured || 0}</p>
-                <p><b>Killed:</b> ${c.number_of_persons_killed || 0}</p>
-                <p><b>Factor:</b> ${c.contributing_factor_vehicle_1 || "N/A"}</p>
-              </div>`;
+                 <h3>${complaint.complaint_type}</h3>
+                 <hr>
+                 <p>${complaint.borough}</p>
+                 <p>${complaint.number_of_persons_injured}</p>
+                 <p>${complaint.descriptor}</p>
+                 <hr>
+                 <p>${complaint.created_date}</p>
+                 <hr>
+                 <p>${complaint.agency}</p>
+              </div>`    
   }
-
   output.innerHTML = build;
 }
+
 // Code below demonstrates the basic process to filter information by borough. Use this as a guide for Challenges 2 and 4 below.
 function filterByBorough(){
   let output = document.getElementById("output");
