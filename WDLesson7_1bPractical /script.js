@@ -18,14 +18,12 @@ async function init(){
 
   //Challenge 3: Display all the violations to the web page using the function card().
 
-  for(let i = 0; i < data.length; i++){
-
+    for(let i = 0; i < data.length; i++){
     let newCard = card(data[i]);
     output.appendChild(newCard);
-
   }
-
 }
+
  
  
 // Challenge 4: Create a function to filter the information and display only the cards that satisfy specfic condition(s).
@@ -35,7 +33,10 @@ function filterViolations(searchTerm){
 
   for(let i = 0; i < data.length; i++){
 
-    if(data[i].violation.toLowerCase().includes(searchTerm.toLowerCase())){
+    if(
+      data[i].violation &&
+      data[i].violation.toLowerCase().includes(searchTerm.toLowerCase())
+    ){
 
       let newCard = card(data[i]);
       output.appendChild(newCard);
@@ -44,4 +45,4 @@ function filterViolations(searchTerm){
 
   }
 
-}
+} 

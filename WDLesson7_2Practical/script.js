@@ -18,7 +18,7 @@ async function init(){
 
      build += `
       <div class="card">
-        <h3>${crash.borough || "Unknown Borough"}</h3>
+        <h3>${crash.borough || "uNKNOWN "}</h3>
         <p><strong>Date:</strong> ${crash.crash_date}</p>
         <p><strong>Time:</strong> ${crash.crash_time}</p>
         <p><strong>Location:</strong> ${crash.on_street_name || "Unknown Street"}</p>
@@ -62,12 +62,12 @@ function filterByBoro(){
 
     build += `
       <div class="card">
-        <h3>${crash.borough}</h3>
-        <p><strong>Date:</strong> ${crash.crash_date}</p>
-        <p><strong>Time:</strong> ${crash.crash_time}</p>
-        <p><strong>Location:</strong> ${crash.on_street_name || "Unknown Street"}</p>
-        <p><strong>Injured:</strong> ${crash.number_of_persons_injured || 0}</p>
-        <p><strong>Killed:</strong> ${crash.number_of_persons_killed || 0}</p>
+        <h3>${info.crash.borough}</h3>
+        <p><strong>Date:</strong> ${info.crash_date}</p>
+        <p><strong>Time:</strong> ${info.crash_time}</p>
+        <p><strong>Location:</strong> ${info.crash.on_street_name }</p>
+        <p><strong>Injured:</strong> ${info.crash.number_of_persons_injured || 0}</p>
+        <p><strong>Killed:</strong> ${info.crash.number_of_persons_killed || 0}</p>
     `;
 
     if(crash.latitude && crash.longitude){

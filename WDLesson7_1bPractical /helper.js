@@ -7,11 +7,16 @@ function get(id){
 //Challenge 1: Create a function card() that accepts the JSON data for each violation, then generates and returns an appropriate card for the violation.
 
 function card(cardinfo){
-  let build ="";
-  build = '<div class= "fitted card">
-                <h3>summons#: ${cardinfo.}
 
- 
+  let build = document.createElement("div");
+  build.className = "fitted card";
 
-  return card;
-}
+  build.innerHTML = `
+    <h3>Summons #: ${cardinfo.summons_number}</h3>
+    <p>Violation: ${cardinfo.violation}</p>
+    <p>Plate ID: ${cardinfo.plate}</p>
+    <p>Issue Date: ${cardinfo.issue_date}</p>
+  `;
+
+  return build;
+} 
